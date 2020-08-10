@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.EditProfSettingActivity">
     <RelativeLayout
-        android:layout_above="@+id/secondlayout"
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
@@ -26,7 +26,6 @@
             />
         <RelativeLayout
             android:layout_marginTop="10dp"
-            android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
             android:layout_below="@id/settingEPBackRow"
             android:id="@+id/profileicons"
@@ -55,7 +54,6 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/profileicons"
             android:layout_alignParentEnd="true"
@@ -65,8 +63,8 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
-                android:layout_alignParentBottom="true"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/defuserimage"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="15dp"
                 android:layout_alignParentStart="true"
@@ -75,7 +73,6 @@
                 android:layout_height="105dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
-                android:scaleType="centerInside"
                  />
 
             <TextView
@@ -94,7 +91,7 @@
         </RelativeLayout>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/firstlayout"
         android:layout_marginTop="5dp"
         android:id="@+id/secondlayout"
         android:layout_width="match_parent"
@@ -369,20 +366,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/hrline"
             />
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/thirdlayout"
-        android:layout_alignParentBottom="true"
-        >
         <Button
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="5dp"
             android:background="@drawable/savebuttoneditsetting"
             />
+
     </RelativeLayout>
+
 
 </RelativeLayout>

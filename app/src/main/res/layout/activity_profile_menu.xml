@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.ProfileMenuActivity">
 
     <RelativeLayout
-        android:layout_above="@+id/secondlayout"
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
@@ -27,7 +27,6 @@
             />
         <RelativeLayout
             android:layout_marginTop="10dp"
-            android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
             android:layout_below="@id/profileBackRow"
             android:id="@+id/profileicons"
@@ -56,7 +55,6 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/profileicons"
             android:layout_alignParentEnd="true"
@@ -67,7 +65,7 @@
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="15dp"
                 android:layout_alignParentStart="true"
@@ -75,6 +73,7 @@
                 android:layout_width="105dp"
                 android:layout_height="105dp"
                 android:layout_centerHorizontal="true"
+                android:src="@drawable/defuserimage"
                  />
 
             <TextView
@@ -85,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="user name"
+                android:text="User Name"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -95,8 +94,8 @@
         </RelativeLayout>
     </RelativeLayout>
     <RelativeLayout
+        android:layout_below="@+id/firstlayout"
         android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
         android:id="@+id/secondlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -121,7 +120,6 @@
             />
 
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_marginEnd="5dp"
             android:layout_marginTop="5dp"
@@ -167,7 +165,6 @@
                 />
 
         </RelativeLayout>
-
         <ImageView
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
@@ -375,6 +372,7 @@
                 />
         </RelativeLayout>
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"

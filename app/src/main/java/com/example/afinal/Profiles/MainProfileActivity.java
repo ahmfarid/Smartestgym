@@ -49,7 +49,6 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
     ImageView glss1,glss2,glss3,glss4,glss5,glss6,glss7,glss8;
     boolean a0=true;boolean a1=true;boolean a2=true;boolean a3=true;boolean a4=true;boolean a5=true;boolean a6=true;boolean a7=true;
     private static final int GALLERY_CODE=1;
-    private Uri mImageUri;
     boolean doubleBackToExitPressedOnce = false;
     boolean navi_open = false;
     double BMR;
@@ -64,6 +63,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_profile);
+        final DecimalFormat df = new DecimalFormat("#.#");
         storageReference = FirebaseStorage.getInstance().getReference();
         fAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -76,6 +76,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
 
                 mStartWeight.setText(documentSnapshot.getString("weight"));
+
 
                 //delete user if have no weight
                 if (documentSnapshot.getString("weight") == null){
@@ -101,12 +102,12 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                 if (g.startsWith("m")) {
                      IBW = (h - 100) - ((h - 100) * 10 / 100);
                     //Math.ceil(IBW);
-                    mGoalWeight.setText(""+(int)(IBW));
+                    mGoalWeight.setText(""+df.format(IBW));
 
                     BMR = 66 + (13.75 * w) + (5 * h) - (6.76 * a);
                 } else if (g.startsWith("f")){
                      IBW = ((int)h - 100) - ((h - 100) * 15 / 100);
-                    mGoalWeight.setText(""+(int)(IBW));
+                    mGoalWeight.setText(""+df.format(IBW));
 
                     BMR = 65.1 + (9.56 * w) + (1.85 * h) - (4.68 * a);
                 }
@@ -123,9 +124,9 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 DocumentReference Ref = db.collection("users").document(userID);
                 Ref.update("TDEE",String.valueOf(TDEE));
-                DecimalFormat df = new DecimalFormat("#.#");
                 energyvalue.setText(String.valueOf(df.format(TDEE)));
-                changeweightvalue.setText(String.valueOf(IBW-w));
+
+                changeweightvalue.setText(String.valueOf(df.format(IBW-w)));
                 menuusernamev.setText(documentSnapshot.getString("username"));
                 usernamev.setText(documentSnapshot.getString("username"));
             }

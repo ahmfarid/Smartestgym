@@ -50,7 +50,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     float w,exeresult;
     String exercalories1,exercalories,exercalories2,exercalories3;
     private Chronometer chronometer;
-    Button start,back,complete,pause,continu,reload;
+    Button start,back,complete,pause,continu;
     private long pauseoffset;
     int id1,id2,id3;
     private TextView rest1,rest2;
@@ -213,7 +213,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        reload.setOnClickListener(new View.OnClickListener() {
+        /*reload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chronometer.setBase ( SystemClock.elapsedRealtime () );
@@ -223,6 +223,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 finish();
             }
         });
+         */
 
         continu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,7 +251,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             public void onClick(View v) {
                 chronometer.setBase(SystemClock.elapsedRealtime() - pauseoffset);
                 pauseoffset = SystemClock.elapsedRealtime() - chronometer.getBase();
-                reload.setVisibility(View.VISIBLE);
                 continu.setVisibility(View.INVISIBLE);
                 if (mDay.startsWith("1")) {
                     if (result.equals("Incline Barbell Bench Press")) {
@@ -474,7 +474,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             start=findViewById(R.id.video_button_start);
             complete = findViewById(R.id.video_button_complete);
             backarrow = findViewById(R.id.video_back_arrow);
-            reload=findViewById(R.id.video_button_reload);
             continu=findViewById(R.id.video_button_continue);
             rest1=findViewById(R.id.rest1);
             rest2=findViewById(R.id.rest2);

@@ -27,7 +27,7 @@ public class SettingMenuActivity extends AppCompatActivity {
             }
         });
 
-        usernamev=findViewById(R.id.usernamevSett);
+        usernamev=(TextView) findViewById(R.id.usernamevSett);
         Intent intent = getIntent();
         usernamev.setText(intent.getStringExtra("username"));
     }

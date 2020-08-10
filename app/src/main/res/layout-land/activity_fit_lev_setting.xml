@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.FitLevSettingActivity">
     <RelativeLayout
-        android:layout_above="@+id/secondlayout"
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
@@ -14,14 +14,14 @@
         >
 
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/backrow"
-            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/backrow"
             android:id="@+id/flsettingBackRow"
             />
         <RelativeLayout
@@ -55,7 +55,6 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/profileicons"
             android:layout_alignParentEnd="true"
@@ -65,7 +64,8 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/defuserimage"
                 android:layout_centerInParent="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="15dp"
@@ -75,14 +75,13 @@
                 android:layout_height="105dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/defuserimage" />
+                 />
 
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/defuserimgprofile"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/usernamev"
+                android:id="@+id/usernamevfit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
@@ -94,7 +93,7 @@
         </RelativeLayout>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/firstlayout"
         android:layout_marginTop="5dp"
         android:id="@+id/secondlayout"
         android:layout_width="match_parent"
@@ -134,6 +133,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fitLevelbeginner"
                 >
 
                 <ImageView
@@ -155,6 +155,7 @@
             </LinearLayout>
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
@@ -173,8 +174,9 @@
             >
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fitLevelintermediate"
                 >
 
                 <ImageView
@@ -195,6 +197,7 @@
             </LinearLayout>
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/hr2"
@@ -214,8 +217,9 @@
             >
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fitLeveladvanced"
                 >
 
                 <ImageView

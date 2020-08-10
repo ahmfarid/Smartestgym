@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.SettingMenuActivity">
 
     <RelativeLayout
+        android:background="@color/colorPrimary"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,21 +64,21 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/defuserimage"
                 android:id="@+id/defuserimgprofile"
-                android:layout_width="155dp"
-                android:layout_height="155dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="20dp"
                 android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/defuserimage" />
+                />
 
             <TextView
-                android:id="@+id/usernamev"
+                android:id="@+id/usernamevSett"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -86,7 +87,7 @@
                 android:gravity="start"
                 android:text="user name"
                 android:textColor="@color/colorWhite"
-                android:textSize="40sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -115,7 +116,7 @@
                 android:paddingLeft="15dp"
                 android:text="SETTINGS INFO."
                 android:textColor="@color/colorGray"
-                android:textSize="45sp" />
+                android:textSize="35sp" />
         </RelativeLayout>
 
         <RelativeLayout

@@ -83,7 +83,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mConfPassword = findViewById(R.id.register_confirmPassword);
 
         mRegisterBtn.setOnClickListener(this);
-
         mLogin.setOnClickListener(this);
         mProfilePic.setOnClickListener(this);
 
@@ -144,7 +143,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()){
             case R.id.register_buttonCreateAccount:
                 registerUser();
-
                 break;
 
             case R.id.register_profilePic:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,87 +7,107 @@
     tools:context=".Train.VideoActivity"
     android:background="#f6f6f6"
     >
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativevid1"
+        android:layout_alignParentTop="true"
+    >
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:background="@drawable/train_background"
         android:id="@+id/background_img"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
 
         />
     <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:src="@drawable/white_arrow"
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
         android:id="@+id/video_back_arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         />
 
     <TextView
+        android:layout_below="@+id/video_back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jumping Rope"
         android:textStyle="bold"
         android:textColor="#fff"
-        android:textSize="20dp"
+        android:textSize="10sp"
         android:id="@+id/video_f_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video_back_arrow"
-        android:layout_margin="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp"
         />
     <FrameLayout
+        android:layout_below="@+id/video_f_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         app:layout_constraintVertical_bias="0.2"
         android:id="@+id/video_viewf"
-        android:layout_margin="13dp"
+        android:layout_margin="5dp"
         >
         <VideoView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="140dp"
             android:id="@+id/video_view"
             />
     </FrameLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tool : Rope/Free \n Sets : 3 x Reps: 10 "
+        android:text="Tool : Rope/Free \t Sets : 3 x Reps: 10 "
         android:textColor="#000"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:layout_margin="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video_viewf"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/video_viewf"
         android:id="@+id/video_s_tv"
         />
     <Chronometer
         android:textColor="@color/colorPrimaryDark"
-        android:layout_margin="13dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10sp"
         tools:ignore="MissingConstraints"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video_viewf"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/video_viewf"
+        android:layout_alignRight="@+id/video_s_tv"
         />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/relativevid1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
     <LinearLayout
-        app:layout_constraintTop_toBottomOf="@+id/video_s_tv"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_first_set"
-        app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
         android:background="#fff"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:weightSum="3"
         >
 
@@ -125,15 +145,16 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
+        android:layout_alignParentStart="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_below_first_set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_first_set"
+        android:layout_below="@+id/layout_first_set"
         android:orientation="horizontal"
         android:background="#fff"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="5dp"
         android:weightSum="3"
         >
 
@@ -176,6 +197,7 @@
                 />
         </RelativeLayout>
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
@@ -184,18 +206,19 @@
         android:textColor="#000"
         android:textAlignment="center"
         android:background="#e9e9e9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_below_first_set"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout_below_first_set"
         android:id="@+id/rest1"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_second_set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rest1"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rest1"
         android:orientation="horizontal"
         android:background="#fff"
-
         android:weightSum="3"
         >
 
@@ -233,12 +256,13 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_below_second_set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_second_set"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout_second_set"
         android:orientation="horizontal"
         android:background="#fff"
         android:layout_marginTop="1dp"
@@ -284,6 +308,7 @@
                 />
         </RelativeLayout>
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
@@ -292,15 +317,18 @@
         android:textColor="#000"
         android:textAlignment="center"
         android:background="#e9e9e9"
+        android:layout_alignParentStart="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_below_second_set"
+        android:layout_below="@+id/layout_below_second_set"
         android:id="@+id/rest2"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_third_set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rest2"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rest2"
         android:orientation="horizontal"
         android:background="#fff"
         android:weightSum="3"
@@ -340,12 +368,13 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/layout_below_third_set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_third_set"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout_third_set"
         android:orientation="horizontal"
         android:background="#fff"
         android:layout_marginTop="1dp"
@@ -392,12 +421,14 @@
         </RelativeLayout>
 
     </LinearLayout>
+
     <Button
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_below_third_set"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_below="@+id/layout_below_third_set"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_shape"
@@ -407,12 +438,12 @@
         android:layout_margin="10dp"
         />
     <Button
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:visibility="invisible"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_below_third_set"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_below="@+id/layout_below_third_set"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_shape"
@@ -421,14 +452,15 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_below_third_set"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/layout_below_third_set"
         >
 
         <LinearLayout
@@ -436,7 +468,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             >
 
             <Button
@@ -445,7 +477,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/video_button_back"
                 android:id="@+id/video_button_back"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 />
             <Button
                 android:visibility="invisible"
@@ -455,7 +487,7 @@
                 android:text="Complete"
                 android:id="@+id/video_button_complete"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 />
 
             <Button
@@ -465,8 +497,11 @@
                 android:background="@drawable/video_button_pause"
                 android:id="@+id/video_button_pause"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 />
         </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

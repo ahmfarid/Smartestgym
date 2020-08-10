@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.MainProfileActivity">
 
     <com.google.android.material.navigation.NavigationView
@@ -187,6 +187,7 @@
         </RelativeLayout>
     </com.google.android.material.navigation.NavigationView>
     <RelativeLayout
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
@@ -274,7 +275,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -289,7 +289,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         >
-
         <ImageView
             android:layout_alignParentTop="true"
             android:id="@+id/caloriestitle"
@@ -299,7 +298,6 @@
             android:src="@drawable/caloriestext" />
 
         <GridLayout
-            android:layout_centerInParent="true"
             android:id="@+id/caloriescalc"
             android:layout_below="@+id/caloriestitle"
             android:layout_width="match_parent"

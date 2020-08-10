@@ -3,31 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.ProfileMenuActivity">
 
     <RelativeLayout
-        android:layout_above="@+id/secondlayout"
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/backrow"
-            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/backrow"
             android:id="@+id/profileBackRow"
             />
         <RelativeLayout
             android:layout_marginTop="10dp"
-            android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
             android:layout_below="@id/profileBackRow"
             android:id="@+id/profileicons"
@@ -56,7 +54,6 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/profileicons"
             android:layout_alignParentEnd="true"
@@ -66,8 +63,8 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
-                android:layout_alignParentBottom="true"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@android:color/transparent"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="15dp"
                 android:layout_alignParentStart="true"
@@ -75,9 +72,8 @@
                 android:layout_width="105dp"
                 android:layout_height="105dp"
                 android:layout_centerHorizontal="true"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/defuserimage" />
+                android:src="@drawable/defuserimage"
+                />
 
             <TextView
                 android:layout_centerVertical="true"
@@ -87,16 +83,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="user name"
+                android:text="User Name"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+                />
 
         </RelativeLayout>
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/firstlayout"
+        >
     <RelativeLayout
         android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
         android:id="@+id/secondlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,17 +112,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-        <TextView
-            android:paddingLeft="15dp"
-            android:textSize="15sp"
-            android:layout_centerInParent="true"
-            android:textColor="@color/colorGray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="USER INFO."
-            />
-        </RelativeLayout>
+            <TextView
+                android:paddingLeft="15dp"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="USER INFO."
+                />
 
+        </RelativeLayout>
         <RelativeLayout
             android:layout_marginEnd="5dp"
             android:layout_marginTop="5dp"
@@ -153,6 +155,7 @@
                     android:layout_gravity="center"
                     />
             </LinearLayout>
+
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
@@ -161,9 +164,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00 YEARS"
+                android:id="@+id/agevalue"
                 />
+
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
@@ -213,9 +219,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="00 Kg"
+                android:id="@+id/startingWeight"
                 />
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/hr2"
@@ -265,9 +273,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="00 Kg"
+                android:id="@+id/goalWeightmenu"
                 />
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/hr3"
@@ -314,9 +324,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="000 cm"
+                android:id="@+id/heightProfile"
                 />
         </RelativeLayout>
         <ImageView
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/hr4"
@@ -363,164 +375,170 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="0000 Kcal"
+                android:id="@+id/energyprofilevalue"
                 />
         </RelativeLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/secondlayout"
-        android:id="@+id/thirdlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+
         <RelativeLayout
-            android:layout_alignParentTop="true"
-            android:paddingTop="10dp"
-            android:background="#E9E9E9"
-            android:id="@+id/accountinfotitle"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/energyinfo"
+            android:id="@+id/thirdlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             >
-            <TextView
-                android:text="ACCOUNT INFO."
-                android:paddingLeft="15dp"
-                android:textSize="15sp"
-                android:layout_centerInParent="true"
-                android:textColor="@color/colorGray"
+            <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:paddingTop="10dp"
+                android:background="#E9E9E9"
+                android:id="@+id/accountinfotitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:text="ACCOUNT INFO."
+                    android:paddingLeft="15dp"
+                    android:textSize="15sp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorGray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:id="@+id/emailinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/accountinfotitle"
+                >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:scaleType="fitStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/profilelogoemail"
+                        />
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="username@gmail.com"
+                    android:id="@+id/EmailProfile"
+                    />
+            </RelativeLayout>
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/hr5"
+                android:layout_below="@+id/emailinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hrline"
                 />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
-            android:id="@+id/emailinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/accountinfotitle"
-            >
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:paddingTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/changepasslinfo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/hr5"
                 >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/changepasswordlinear"
+                    >
 
-                <ImageView
-                    android:scaleType="fitStart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profilelogoemail"
-                    />
-                <TextView
-                    android:textColor="@color/colorBlack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-            <TextView
-                android:layout_centerVertical="true"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
+                    <ImageView
+                        android:layout_marginEnd="10dp"
+                        android:scaleType="fitXY"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/profilelogocp"
+                        />
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Password"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/hr6"
+                android:layout_below="@+id/changepasslinfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="username@gmail.com"
+                android:src="@drawable/hrline"
                 />
-        </RelativeLayout>
-        <ImageView
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:id="@+id/hr5"
-            android:layout_below="@+id/emailinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/hrline"
-            />
-        <RelativeLayout
-            android:paddingTop="1dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="15dp"
-            android:id="@+id/changepasslinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/hr5"
-            >
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:paddingTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/hr6"
                 >
-
-                <ImageView
-                    android:layout_marginEnd="10dp"
-                    android:scaleType="fitXY"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/profilelogocp"
-                    />
-                <TextView
-                    android:textColor="@color/colorBlack"
+                <LinearLayout
+                    android:id="@+id/logoutinfo"
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Change Password"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-        </RelativeLayout>
-        <ImageView
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:id="@+id/hr6"
-            android:layout_below="@+id/changepasslinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/hrline"
-            />
-        <RelativeLayout
-            android:paddingTop="1dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="15dp"
-            android:id="@+id/logoutinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/hr6"
-            >
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                    >
 
-                <ImageView
-                    android:layout_marginEnd="10dp"
-                    android:scaleType="fitXY"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/profilelogouser"
-                    />
-                <TextView
-                    android:textColor="@color/colorBlack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Log out"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_marginEnd="10dp"
+                        android:scaleType="fitXY"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/profilelogouser"
+                        />
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log out"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

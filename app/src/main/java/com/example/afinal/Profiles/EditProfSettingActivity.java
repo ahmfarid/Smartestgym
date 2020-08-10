@@ -29,6 +29,7 @@ public class EditProfSettingActivity extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_prof_setting);
+
         usernameE = findViewById(R.id.usernameeditsetting);
         ageE = findViewById(R.id.ageeditsetting);
         weightE = findViewById(R.id.sweditsetting);

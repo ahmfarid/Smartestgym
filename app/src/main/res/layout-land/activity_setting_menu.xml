@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainprofilebackground"
+    android:background="@color/colorWhite"
     tools:context=".Profiles.SettingMenuActivity">
 
     <RelativeLayout
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:id="@+id/firstlayout"
         android:layout_width="match_parent"
@@ -62,23 +63,25 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="15dp"
-                android:layout_alignParentStart="true"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/defuserimage"
                 android:id="@+id/defuserimgprofile"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="20dp"
                 android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/defuserimage" />
+                />
             <TextView
-                android:layout_toEndOf="@+id/defuserimgprofile"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/usernamev"
+                android:id="@+id/usernamevSett"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/defuserimgprofile"
                 android:gravity="start"
                 android:text="user name"
                 android:textColor="@color/colorWhite"
@@ -105,7 +108,7 @@
             android:layout_height="wrap_content"
             >
             <TextView
-                android:paddingLeft="15dp"
+                android:paddingLeft="10dp"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorGray"

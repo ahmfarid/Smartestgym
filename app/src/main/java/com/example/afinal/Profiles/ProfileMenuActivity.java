@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.afinal.R;
@@ -31,11 +32,9 @@ import java.text.DecimalFormat;
 public class ProfileMenuActivity extends AppCompatActivity {
     float TDEE;
     TextView energy;
-
     ImageView profilebackrow,profileimg;
     TextView agetv,weighttv,heighttv,emailtv,usernamev,goalweighttv;
-    LinearLayout logout,changepass;
-    FirebaseUser user;
+    LinearLayout changepass,logout;
     String userID;
     FirebaseAuth fAuth;
     FirebaseFirestore firestore;
@@ -45,6 +44,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_menu);
+
         fAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -69,18 +69,18 @@ public class ProfileMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //logout
         logout = findViewById(R.id.logoutinfo);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                finish();
                 Intent intent=new Intent(ProfileMenuActivity.this, WelcomeActivity.class);
                 startActivity(intent);
+                finish();
+
             }
         });
-        changepass = findViewById(R.id.changepasswordlinear);
+        changepass =(LinearLayout) findViewById(R.id.changepasswordlinear);
         changepass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
