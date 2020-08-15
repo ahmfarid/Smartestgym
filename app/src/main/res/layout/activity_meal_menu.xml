@@ -355,13 +355,13 @@
                 />
             <ImageView
                 android:layout_margin="5dp"
-                android:scaleType="center"
+                android:scaleType="centerInside"
                 android:layout_columnWeight="1"
                 android:layout_column="1"
                 android:layout_row="1"
                 android:id="@+id/caldairy"
-                android:src="@drawable/calorieslogodairy"
-                android:layout_width="wrap_content"
+                android:src="@drawable/calorieslogodairyy"
+                android:layout_width="2dp"
                 android:layout_height="80dp"
                 />
             <ImageView
