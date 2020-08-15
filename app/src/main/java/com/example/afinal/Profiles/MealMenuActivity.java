@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.example.afinal.Profiles.CaloriesPlan.CalFruitsActivity;
 import com.example.afinal.Profiles.CaloriesPlan.CalProteinActivity;
 import com.example.afinal.Profiles.CaloriesPlan.CalVegetablesActivity;
 import com.example.afinal.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,12 +30,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 
 public class MealMenuActivity extends AppCompatActivity{
 
-    ImageView calprotein, calcarbs, caldairy, calfats, calvegetables, calfruits,caloriesplanBackRow;
+    ImageView calprotein, calcarbs, caldairy, calfats, calvegetables, calfruits,caloriesplanBackRow,profileimg;
     String TDEE;
     String userID;
     FirebaseAuth fAuth;
@@ -47,12 +50,20 @@ public class MealMenuActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_menu);
 
+
         Intent intent = getIntent();
         storageReference = FirebaseStorage.getInstance().getReference();
         fAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
-
+        profileimg= findViewById(R.id.defuserimgprofileCal);
+        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileimg);
+            }
+        });
         usernamev = findViewById(R.id.usernamevmenu);
         usernamev.setText(intent.getStringExtra("username"));
         x= intent.getStringExtra("x");
