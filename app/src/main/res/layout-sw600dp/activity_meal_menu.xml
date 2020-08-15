@@ -358,7 +358,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/calorieslogoprotein" />
+                android:src="@drawable/calorieslogofats" />
 
             <ImageView
                 android:id="@+id/caldairy"
@@ -368,8 +368,8 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/calorieslogoprotein" />
+                android:scaleType="center"
+                android:src="@drawable/calorieslogodairy" />
 
             <ImageView
                 android:id="@+id/calfruits"
@@ -393,7 +393,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/caloriesvegetables" />
+                android:src="@drawable/calorieslogovegetables" />
         </GridLayout>
 
 

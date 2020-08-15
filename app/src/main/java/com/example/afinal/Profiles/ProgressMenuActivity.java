@@ -62,7 +62,6 @@ public class ProgressMenuActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).into(mprofilepic);
-
             }
         });
         storageReference = FirebaseStorage.getInstance().getReference();

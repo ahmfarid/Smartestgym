@@ -287,7 +287,6 @@
         android:layout_above="@+id/thirdlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         >
         <ImageView
             android:layout_alignParentTop="true"

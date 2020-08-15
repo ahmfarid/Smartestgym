@@ -53,6 +53,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
     boolean navi_open = false;
     double BMR;
     double TDEE;
+    String x;
     double IBW;
     FirebaseUser user;
     String userID;
@@ -102,7 +103,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                 if (g.startsWith("m")) {
                      IBW = (h - 100) - ((h - 100) * 10 / 100);
                     //Math.ceil(IBW);
-                    mGoalWeight.setText(""+df.format(IBW));
+                    mGoalWeight.setText(df.format(IBW));
 
                     BMR = 66 + (13.75 * w) + (5 * h) - (6.76 * a);
                 } else if (g.startsWith("f")){
@@ -125,13 +126,19 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                 DocumentReference Ref = db.collection("users").document(userID);
                 Ref.update("TDEE",String.valueOf(TDEE));
                 energyvalue.setText(String.valueOf(df.format(TDEE)));
-
                 changeweightvalue.setText(String.valueOf(df.format(IBW-w)));
                 menuusernamev.setText(documentSnapshot.getString("username"));
                 usernamev.setText(documentSnapshot.getString("username"));
+
+                if(w<IBW){
+                    x="> ";
+                }
+                else if (w>IBW){
+                    x="< ";
+                }
+                else x=" ";
             }
         });
-        //ahmed
 
         changeweightvalue=findViewById(R.id.changeweightvalue);
         energyvalue=findViewById(R.id.energyvalue);
@@ -237,8 +244,6 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.gymworkout: {
-//                Intent intent=new Intent(MainProfileActivity.this,gymWorkoutActivity.class);
-//                startActivity(intent);
                 checkfit();
                 break;
             }
@@ -430,7 +435,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
 
     public void openMealMenu(View view) {
         Intent intent=new Intent(MainProfileActivity.this,MealMenuActivity.class);
-        intent.putExtra("tdee",TDEE);
+        intent.putExtra("x",x);
         intent.putExtra("username",usernamev.getText().toString());
         startActivity(intent);
     }

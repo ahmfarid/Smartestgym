@@ -41,19 +41,21 @@ public class MealMenuActivity extends AppCompatActivity{
     StorageReference storageReference;
     Double foodtdee=1.0;
     TextView energy,proteincal,carbcal,fatcal,usernamev;
+    String x;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_menu);
 
-        DecimalFormat df = new DecimalFormat("#.#");
         Intent intent = getIntent();
         storageReference = FirebaseStorage.getInstance().getReference();
         fAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
+
         usernamev = findViewById(R.id.usernamevmenu);
         usernamev.setText(intent.getStringExtra("username"));
+        x= intent.getStringExtra("x");
 
         DocumentReference documentReference = firestore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -62,17 +64,18 @@ public class MealMenuActivity extends AppCompatActivity{
 
             TDEE = documentSnapshot.getString("TDEE");
 
-                DecimalFormat df = new DecimalFormat("#.#");
-                foodtdee= Float.parseFloat(TDEE)*0.15;
+                DecimalFormat df = new DecimalFormat("#");
+                foodtdee= Double.valueOf(TDEE);
                 energy=findViewById(R.id.energymealvalue);
-                energy.setText(String.valueOf(df.format(foodtdee)));
                 proteincal=findViewById(R.id.proteincal);
                 carbcal=findViewById(R.id.carbcal);
                 fatcal=findViewById(R.id.fatscal);
-                Double prot=foodtdee*0.30;
-                Double carb=foodtdee*0.15;
-                Double fat=foodtdee*0.04;
+                Double prot=foodtdee*0.25;
+                Double carb=foodtdee*0.50;
+                Double fat=foodtdee*0.30;
                 df.format(prot);
+
+                energy.setText("eat "+x+(df.format(foodtdee)));
                 proteincal.setText(String.valueOf(df.format(prot)));
                 carbcal.setText(String.valueOf(df.format(carb)));
                 fatcal.setText(String.valueOf(df.format(fat)));
