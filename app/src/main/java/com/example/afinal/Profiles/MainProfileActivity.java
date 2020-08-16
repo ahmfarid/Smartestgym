@@ -1,6 +1,7 @@
 package com.example.afinal.Profiles;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,6 +40,9 @@ import java.util.Date;
 
 
 public class MainProfileActivity extends AppCompatActivity implements View.OnClickListener{
+    SharedPreferences sh;
+    SharedPreferences.Editor myEdit;
+
     Date membershipDate;
     int fit;
     Button menuicon;
@@ -64,6 +68,7 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_profile);
+
         final DecimalFormat df = new DecimalFormat("#.#");
         storageReference = FirebaseStorage.getInstance().getReference();
         fAuth = FirebaseAuth.getInstance();
@@ -212,6 +217,8 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                 navi_open = false;
             }
         });
+        getStatus();
+
     }
 
     @Override
@@ -259,12 +266,15 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss1.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a0=false;
+                    saveStatus();
                 }
                 else{
                     --counter;
                     glss1.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a0=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -274,12 +284,16 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss2.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a1=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss2.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a1=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -289,12 +303,15 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss3.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a2=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss3.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a2=true;
+                    saveStatus();
                 }
                 break;
             }
@@ -304,12 +321,16 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss4.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a3=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss4.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a3=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -319,12 +340,16 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss5.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a4=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss5.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a4=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -334,12 +359,16 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss6.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a5=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss6.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a5=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -349,12 +378,16 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss7.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a6=false;
+                    saveStatus();
+
                 }
                 else{
                     --counter;
                     glss7.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a6=true;
+                    saveStatus();
+
                 }
                 break;
             }
@@ -364,12 +397,14 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
                     glss8.setImageResource(R.drawable.fullglass);
                     cupcounter.setText(Integer.toString(counter));
                     a7=false;
+                    saveStatus();
                 }
                 else{
                     --counter;
                     glss8.setImageResource(R.drawable.emptyglass);
                     cupcounter.setText(Integer.toString(counter));
                     a7=true;
+                    saveStatus();
                 }
                 break;
             }
@@ -383,6 +418,77 @@ public class MainProfileActivity extends AppCompatActivity implements View.OnCli
         else {
             checkcorrect.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private void saveStatus(){
+        sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        myEdit = sh.edit();
+        myEdit.putBoolean("a1",a0);
+        myEdit.putBoolean("a2",a1);
+        myEdit.putBoolean("a3",a2);
+        myEdit.putBoolean("a4",a3);
+        myEdit.putBoolean("a5",a4);
+        myEdit.putBoolean("a6",a5);
+        myEdit.putBoolean("a7",a6);
+        myEdit.putBoolean("a8",a7);
+        myEdit.putInt("c",counter);
+        myEdit.apply();
+
+    }
+
+    
+    private void getStatus(){
+        sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        a0 = sh.getBoolean("a1",true);
+        a1 = sh.getBoolean("a2",true);
+        a2 = sh.getBoolean("a3",true);
+        a3 = sh.getBoolean("a4",true);
+        a4 = sh.getBoolean("a5",true);
+        a5 = sh.getBoolean("a6",true);
+        a6 = sh.getBoolean("a7",true);
+        a7 = sh.getBoolean("a8",true);
+        int c = sh.getInt("c",0);
+        if (a0==false){
+            glss1.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a1==false){
+            glss2.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a2==false){
+            glss3.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a3==false){
+            glss4.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a4==false){
+            glss5.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a5==false){
+            glss6.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a6==false){
+            glss7.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+        else if (a7==false){
+            glss8.setImageResource(R.drawable.fullglass);
+            cupcounter.setText(Integer.toString(c));
+            counter ++;
+        }
+
     }
     // method to check fit lvl for user
     private void checkfit() {

@@ -65,8 +65,7 @@ public class ProfileMenuActivity extends AppCompatActivity {
         profilebackrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProfileMenuActivity.this,MainProfileActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
         logout = findViewById(R.id.logoutinfo);
